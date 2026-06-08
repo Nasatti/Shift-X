@@ -1,0 +1,9 @@
+{
+  "name": "career-path-master",
+  "version": "1.0.0",
+  "description": "Lambda Master — Orchestratore della pipeline career path (λ1 → λ2 → λ3)",
+  "main": "handler.js",
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.0.0"
+  }
+}

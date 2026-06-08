@@ -1,0 +1,10 @@
+{
+  "name": "get-relevant-tags",
+  "version": "2.0.0",
+  "description": "Lambda λ2 — Seleziona i tag più pertinenti per il job usando frequency + keyword scoring (no Bedrock)",
+  "main": "handler.js",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mongoose": "^7.0.0"
+  }
+}

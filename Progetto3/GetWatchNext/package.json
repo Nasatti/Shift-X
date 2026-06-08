@@ -1,0 +1,10 @@
+{
+  "name": "get-watch-next",
+  "version": "1.0.0",
+  "description": "Lambda GetWatchNext — Restituisce i video related_videos per un dato talk id",
+  "main": "handler.js",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mongoose": "^7.0.0"
+  }
+}
