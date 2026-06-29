@@ -15,15 +15,17 @@ graph TD
     A[S3 Data Lake: CSVs] -->|ETL Spark Job| B(AWS Glue Job)
     B -->|Enrichment & Categorizzazione| C[("MongoDB Atlas (unibg_tedx_2026)")]
     
-    subgraph "Backend Cloud & Client"
+    subgraph "Backend Serverless Cloud"
         C ---|Mongoose| D[AWS Lambda Pipeline - Master/Worker]
-        D -->|API Gateway HTTP| F[Flutter Mobile App Client]
     end
     
     subgraph "Integrazione AI Locale (Local Testing)"
         C ---|Motor / PyMongo| E[MCP Server + Ollama Llama 3.2]
     end
+
+    D -->|API Gateway HTTP| F[Flutter Mobile App Client]
 ```
+
 
 
 
