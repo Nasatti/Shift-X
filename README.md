@@ -13,16 +13,19 @@ Il sistema si compone di quattro sotto-progetti principali che coprono l'intero 
 ```mermaid
 graph TD
     A[S3 Data Lake: CSVs] -->|ETL Spark Job| B(AWS Glue Job)
-    B -->|Enrichment & Categorizzazione| C[(MongoDB Atlas: unibg_tedx_2026)]
+    B -->|Enrichment & Categorizzazione| C[("MongoDB Atlas (unibg_tedx_2026)")]
     
-    subgraph Backend Options
-        C <-->|Mongoose| D[AWS Lambda Pipeline - Master/Worker]
-        C <-->|Motor / PyMongo| E[MCP Server + Ollama Llama 3.2]
+    subgraph "Backend Cloud & Client"
+        C ---|Mongoose| D[AWS Lambda Pipeline - Master/Worker]
+        D -->|API Gateway HTTP| F[Flutter Mobile App Client]
     end
     
-    D -->|API Gateway HTTP| F[Flutter Mobile App Client]
-    E -->|FastAPI Local Orchestrator| F
+    subgraph "Integrazione AI Locale (Local Testing)"
+        C ---|Motor / PyMongo| E[MCP Server + Ollama Llama 3.2]
+    end
 ```
+
+
 
 1. **[Progetto 1 (Presentazione)](./Progetto1/)**: Slide e materiale di presentazione dell'intero progetto Shift-X, che ne illustra gli obiettivi, l'architettura cloud e i risultati.
 2. **[Progetto 2 (ETL & Data Enrichment)](./Progetto2/)**: Pipeline Spark su **AWS Glue** per l'elaborazione dei dataset memorizzati su **Amazon S3**, l'arricchimento dei talk, il calcolo deterministico delle macro-categorie ed il caricamento su **MongoDB Atlas**.

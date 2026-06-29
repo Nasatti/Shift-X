@@ -10,7 +10,7 @@ Il job PySpark esegue le seguenti operazioni in modo distribuito:
 
 ```mermaid
 graph TD
-    subgraph S3 Data Lake (Input CSV)
+    subgraph "S3 Data Lake (Input CSV)"
         A[final_list.csv]
         B[details.csv]
         C[tags.csv]
@@ -18,7 +18,7 @@ graph TD
         E[related_videos.csv]
     end
     
-    subgraph AWS Glue (Spark Engine)
+    subgraph "AWS Glue (Spark Engine)"
         F[Pulizia Testi & Join dei Dati]
         G[Risoluzione Relazioni Watch Next]
         H[UDF: Categorizzazione Deterministica]
@@ -27,8 +27,9 @@ graph TD
     A & B & C & D & E --> F
     F --> G
     G --> H
-    H -->|Scrittura via Spark Connector| I[(MongoDB Atlas: tedx_data)]
+    H -->|Scrittura via Spark Connector| I[("MongoDB Atlas (tedx_data)")]
 ```
+
 
 1. **Lettura dei Dataset**: Carica 5 file CSV da Amazon S3 (`s3://shiftx-data-2026/`):
    - `final_list.csv`: Elenco principale dei talk.
