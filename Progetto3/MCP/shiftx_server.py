@@ -34,7 +34,7 @@ if os.path.exists(env_file_path):
 
 # Fallback URI (configured in our workspace)
 if not MONGO_URI:
-    MONGO_URI = os.environ.get("DB", "mongodb+srv://GiacomoPrevitali:GiacomoPrevitali@cluster0.to95nu3.mongodb.net/?appName=Cluster0")
+    MONGO_URI = os.environ.get("DB", "")
 
 print(f"Connecting to MongoDB...")
 client = AsyncIOMotorClient(MONGO_URI)
