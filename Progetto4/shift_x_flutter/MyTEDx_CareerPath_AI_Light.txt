@@ -1,0 +1,73 @@
+
+--- SLIDE 1 ---
+MyTEDx
+CareerPath AI
+Cloud Platforms Project  ·  2025
+Trasforma il dataset TEDx
+in un consulente di carriera AI
+Un sistema serverless su AWS che analizza le competenze richieste dal mercato e crea percorsi di apprendimento personalizzati con i migliori TEDx Talk al mondo.
+AWS Lambda
+Amazon Bedrock
+API Gateway
+Firebase Auth
+Amazon S3
+Amazon Glue
+
+--- SLIDE 2 ---
+SCENARIO & ARCHITETTURA
+☁️  Storage
+Dataset TEDx su Amazon S3 (CSV/JSON)
+🗄️  Database
+Document Store NoSQL (DynamoDB) post-ETL
+⚡  Core Logic
+Lambda Skill Extractor + Path Generator
+🤖  AI Engine
+Amazon Bedrock per mappatura competenze
+📱  Frontend
+App Mobile via API Gateway + JWT Auth
+
+--- SLIDE 3 ---
+OBIETTIVI & TARGET
+🎯  OBIETTIVI
+→  Trasformare il dataset TEDx in un sistema di consulenza di carriera automatizzata
+→  Analizzare le competenze richieste dal mercato del lavoro attuale
+→  Creare percorsi di apprendimento personalizzati dai talk di esperti mondiali
+→  Coprire il bisogno di reskilling: da Junior Dev a Project Manager in una playlist
+👥  TARGET
+👩‍💼  Professionisti
+In cerca di crescita e reskilling rapido
+🏢  Uffici HR
+Per formazione interna strutturata
+🎓  Studenti Universitari
+Per orientamento pre-carriera
+💡  "Junior Developer" → "Project Manager"  ·  Leadership + Gestione Conflitti + Public Speaking  →  🎬 Playlist 5 TEDx Talk
+
+--- SLIDE 4 ---
+VALORE & RELEASE PLAN
+🆓  Formazione Gratuita
+Talk di esperti mondiali strutturati come un corso professionale a pagamento
+🤖  AI-powered
+Amazon Bedrock genera raccomandazioni intelligenti e pertinenti al profilo utente
+📊  NLP & Comprehend
+Estrazione automatica delle competenze professionali dai contenuti dei talk
+♾️  Serverless & Scalabile
+Architettura AWS Lambda: zero infrastruttura da gestire, pay-per-use
+RELEASE PLAN
+v0.1  Foundation
+Setup GitHub + Trello  ·  ETL dataset TEDx  ·  Caricamento su NoSQL
+v0.2  AI & Logic
+Lambda Functions  ·  Categorizzazione video  ·  Integrazione AI Bedrock
+v0.3  Experience
+App mobile Flutter  ·  Testing API  ·  Deploy finale su AWS
+
+--- SLIDE 5 ---
+CRITICITÀ & RISCHI
+⚠️  Copertura Dataset
+Il dataset TEDx copre prevalentemente soft skills; le competenze tecniche avanzate potrebbero risultare insufficienti.
+🎯  Qualità Mappatura AI
+La mappatura IA richiede validazione umana per evitare suggerimenti non pertinenti o contestualizzazioni errate.
+🔑  Autenticazione & Sicurezza
+Integrazione Firebase JWT + Lambda Authorizer: la gestione dei token deve essere robusta contro accessi non autorizzati.
+📈  Scalabilità ETL
+Il pipeline AWS Glue per la pulizia dati deve reggere aggiornamenti frequenti del dataset senza downtime.
+🚀  MyTEDx CareerPath AI — Formazione gratuita, strutturata come un corso professionale, powered by AWS

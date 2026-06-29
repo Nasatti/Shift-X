@@ -1,0 +1,124 @@
+--- PAGE 1 ---
+ESEMPIO TESTO A PIÈ DI PAGINA
+TED GO
+I TUOI TEDX OVUNQUE TU SIA!
+Beccarelli Raissa mat. 1086785
+Locatelli Giacomo mat. 1086262
+Valceschini Marco mat. 1086356
+
+--- PAGE 2 ---
+2
+SVILUPPIAMO L’APPLICAZIONE SU FLUTTER
+Nel footer dell'applicazione, viene anche lasciato lo spazio per 
+permettere una futura implementazione del login per gli utenti e della 
+ricezione di notifiche personalizzate. Inoltre, nella schermata di 
+visualizzazione dei talk viene lasciato lo spazio per l'implementazione 
+di una chat del canale in cui gli utenti registrati possano interagire tra 
+di loro.
+Utilizziamo ora Flutter e le API precedentemente implementate per creare  la nostra 
+applicazione mobile TedGo. Questa applicazione mostra i canali di video che sono 
+stati creati, chiamati “Arte” ,  “Sport & Salute” , “Economia” , “Scienza” , “Educazione” , 
+“Intrattenimento” , “Politica” e “Tecnologia” . 
+Quando si preme su uno dei canali viene mostrato il talk che è in riproduzione in 
+quel momento, a seconda della programmazione di ciascun canale. Sotto il video 
+sarà inoltre possibile consultare la programmazione del canale ed i video correlati 
+(con la possibilità di guardarli) tramite apposite pulsanti che conducono ad una 
+pagina dedicata a ciascuna delle due funzionalità.
+
+
+--- PAGE 3 ---
+SVILUPPO DEI CANALI
+Per lo sviluppo dei canali tematici, siamo partiti dalla API 
+che avevamo creato, per prendere i talk a partire da un 
+canale. Abbiamo mappato i talk e li abbiamo portati in un 
+formato di tipo Talk che abbiamo dichiarato.
+Nella classe Talk, oltre a trasformare i dati da un JSON, 
+abbiamo formattato l’url di modo che potessimo mostrare a 
+schermo il video con il WebViewWidget.
+
+--- PAGE 4 ---
+4
+SVILUPPO DEI CANALI
+Alla selezione di un canale si richiama l’API che mostra il talk in onda al momento. Il 
+video parte dal minutaggio corretto, rispetto alla programmazione, grazie all’offset.
+La funzione _checkAndUpdateTalk controlla che il talk in 
+riproduzione sul canale sia quello programmato per quel 
+momento. Se il video programmato è diverso da quello 
+attualmente in riproduzione, modifica il talk corrente con quello 
+nuovo e aggiorna la WebView per riprodurre il video corretto.
+La funzione controlla periodicamente se un talk è in corso sul canale. Se sì, e se è diverso da quello attualmente mostrato, 
+•Il talk corrente nel widget.
+•Il video player WebView con l’URL aggiornato, che punta al punto esatto da cui il talk dovrebbe essere riprodotto, calcolando un offset in secondi.
+
+--- PAGE 5 ---
+SVILUPPO DEI CANALI
+
+
+--- PAGE 6 ---
+6
+SVILUPPO DEI WATCH NEXT
+Per lo sviluppo dei video suggeriti, siamo 
+partiti dalla chiamata 
+get_Watch_Next_By_Id, in cui richiamiamo 
+l’url della nostra API. A partire dalla risposta 
+ottenuta, in cui viene passato l’id del video 
+correlato, si estrapola la lista di watch next 
+e la si trasforma in oggetti di tipo 
+WatchNextTalk, come qui sotto dichiarati.
+
+
+--- PAGE 7 ---
+SVILUPPO DEI WATCH NEXT
+A seconda del talk che è in riproduzione in questo momento, viene 
+chiamata la lambda function a cui viene passato l’id del «current talk». 
+Sulla base del risultato, viene poi creata la pagina dei watch next.
+Sulla base della lista di watch next ottenuti 
+precedentemente, creiamo uno stile della 
+pagina in cui sotto la scritta «Guarda anche», 
+vengono mostrati tutti i talk suggeriti, con il loro 
+titolo ed un bottone per mostrare il video, sotto 
+forma di player.
+
+--- PAGE 8 ---
+8
+SVILUPPO DEI WATCH NEXT
+
+
+--- PAGE 9 ---
+SVILUPPO DELLA PROGRAMMAZIONE
+Un ultimo problema avuto è relativo alla 
+cancellazione delle righe con all’interno dei valori 
+nulli. Infatti, abbiamo dovuto fare più prove per 
+riuscire a capire come cancellarli.
+Abbiamo inoltre pensato di inserire la programmazione dei video per 
+ciascun canale, di modo che l’utente possa sapere a che ora e in che 
+giorno è riprodotto un talk di suo interesse. 
+
+
+--- PAGE 10 ---
+10
+CRITICITA’ ED EVOLUZIONI
+Criticità
+• Abbiamo notato che il caricamento delle pagine, tramite chiamata della lambda, è molto lento. Questo comportamento si 
+verifica soprattutto dopo una suddivisione del codice in classi distinte. Per questo motivo abbiamo lasciato il codice tutto in 
+un unico file main.dart;
+• Per non creare troppo traffico di dati abbiamo limitato nella lambda «get_Talk_By_Channel» la schedulazione dei talk per 3 
+cicli a partire da una data  specifica. Questo però comporta una continua manutenzione della lambda in quanto una volta 
+esauriti i 3 cicli, non ci sono più talk da mostrare nel canale. 
+• Una criticità riscontrata durante la fase di programmazione è stata quella di riuscire a mostrare il video a partire dall’url dato 
+nel dataset. Questo problema è stato risolto tramite una riformattazione dell’url tramite l’utilizzo di embed.com/talks/… al 
+posto di  www.ted.com/talks/... 
+• Abbiamo aggiunto un offset al nuovo url (t=35 per esempio) per specificare a che istante il video deve iniziare per essere in 
+live. Tuttavia, questo non funziona sempre, in quanto Embed non garantisce che per tutti i TED si possa andare ad un tempo 
+preciso. 
+Evoluzioni
+Un implementazione successiva da applicare al nostro progetto sarà quella di rendere attiva la chat per gli utenti registrati e 
+quindi implementare una funzionalità di registrazione/login. Inoltre dovremmo implementare un algoritmo che permetterà agli 
+utenti di guadagnare esperienza guardando i TED.
+
+--- PAGE 11 ---
+11
+GitHub Logo, symbol, meaning, history, PNG, brand
+Trello Logo and symbol, meaning, history, PNG
+I NOSTRI LINK
+
